@@ -1,13 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
-import movieDB from '../api/movieDB';
+import {useMovies} from '../hooks/useMovies';
 
 export const HomeScreen = () => {
-  useEffect(() => {
-    movieDB.get('/now_playing').then(res => {
-      console.log(res);
-    });
-  }, []);
+  const {peliculasEnCine} = useMovies();
+
   return (
     <View>
       <Text>Home</Text>
